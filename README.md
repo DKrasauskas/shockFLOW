@@ -22,15 +22,16 @@ For examples, usage and documentation, see the official example repository https
 ### GPU Architecture Support
 
 As of the latest release, the currently supported compute modes and architectures are:
-
-| Architecture | Compute Capability | FP32 | FP64 | Linux | Windows |
-|--------------|--------------------|:----:|:----:|:-----:|:-------:|
-| Pascal       | 6.x                | Yes  | No   | Yes   | No      |
-| Volta        | 7.0                | Yes  | No   | Yes   | No      |
-| Turing       | 7.5                | Yes  | No   | Yes   | Yes     |
-| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     |
-| Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     |
-| Hopper       | 9.0                | Yes  | No   | Yes   | Yes     |
+ 
+| Architecture | Compute Capability | FP32 | FP64 | Linux | Windows | shockFLOW  | shockFLOW-cu129 |
+|--------------|--------------------|:----:|:----:|:-----:|:-------:|:----------------------:|:----------------:|
+| Pascal       | 6.x                | Yes  | No   | Yes   | No      |                        | x                |
+| Volta        | 7.0                | Yes  | No   | Yes   | No      |                        | x                |
+| Turing       | 7.5                | Yes  | No   | Yes   | Yes     | x                      | x                |
+| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | x                      |                  |
+| Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     | x                      |                  |
+| Hopper       | 9.0                | Yes  | No   | Yes   | Yes     | x                      |                  |
+ 
 
 Note that FP64 is currently unavailable on all architectures. This is due to the large file size required for the pip repository. This will be fixed in the near future. 
 
@@ -57,6 +58,11 @@ For older GPUs, use a build with CUDA 12.9:
 pip install shockFLOW-cu129
 ```
 
+after installation, run a simple test program:
+```python
+import shockFLOW.solver as solver
+solver.getDeviceProperties()
+```
 
 
 ## Validation
