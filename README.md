@@ -134,3 +134,10 @@ Measuring time after the first shock impacts the wedge, density gradients are ex
     </td>
   </tr>
 </table>
+
+## License
+
+The Python interface in this repository is licensed under the [MIT License](./LICENSE).
+The compiled CUDA/C++ backend distributed via PyPI is proprietary — free to use,
+but reverse engineering, decompilation, or redistribution as a standalone product
+is not permitted. See [LICENSE-BINARY.md](./LICENSE-BINARY.md) for full terms.
