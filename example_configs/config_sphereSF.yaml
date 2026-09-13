@@ -1,0 +1,155 @@
+# ==============================================================================
+# CONFIGURATION FILE: <simulation name / case description>
+# ==============================================================================
+# Author        : <name>
+# Last updated  : <YYYY-MM-DD>
+# Solver/build  : <e.g. dev build, commit hash, version>
+#
+# DESCRIPTION
+#   This example is used to simulate a wedge immersed in a sonic flow.
+#   Note that above freestream of M 2.0, the convergence of single precision solver is limited.
+#   Switching to double precision is a requirement above M 2.0. Importantly, lattice errors above M 2.5 in higher order moments
+#   become exceedingly high.
+#
+# SECTIONS
+#   simulation          - Lattice/grid resolution (Nx, Ny, Nz)
+#   physics              - Reference thermodynamic/fluid state (SI units unless noted)
+#   domain                - Physical extent of the domain in mm
+#   general_boundaries    - Global boundary switches (enable/disable, defaults, nozzle flow)
+#   wall_boundaries        - Wall boundary condition flags per axis (x, y)
+#   boundary_files          - Paths to external boundary/normals definition files
+#   v_inf_x                  - Freestream velocity in x, normalized to lattice speed
+#   riemann                   - Toggle for generic Riemann problem instead of wedge case
+#   shock                      - Shock tube / initial shock definition (ratios, location, triggers)
+#   render_window               - Output render resolution (px)
+#   events                        - Simulation control events (EXT = mandatory end time, us)
+#   capture_events                - Field-export (HDF5) snapshot events
+#   output                          - Output directory for rendered videos
+#   runtime                          - Solver runtime options (alpha mode, debug, dynamic weights)
+#   wedge                              - Wedge geometry parameters (size, nose position)
+#   bc_scale                            - Global boundary condition scaling factor
+#   fields_to_rasterize                  - Field IDs + render/output settings for video export
+#
+# NOTES / TODO
+# ==============================================================================
+
+
+
+simulation:
+  domain:
+    Nx : 6000
+    Ny : 3000
+    Nz : 1
+
+
+#define the reference state
+physics:
+  temperature: 300.0 #K
+  GasConstant : 287.058
+  pressure: 100000 # Pa
+  density: 1.0 #kg/m^3
+  gamma : 1.0
+  viscosity : 0.0001886109
+  cv    :  1.4
+
+#define the physical domain length
+domain:
+  mx : -1500 #mm
+  px : 1500 #mm
+
+#define the boundaries. For the dev build, nozzle flow is defined as a separate boundary
+general_boundaries:
+  boundary_enable   : true
+  default_boundary  : false
+  nozzle_flow       : false
+
+wall_boundaries:
+  x: 1
+  y: 0
+
+boundary_files:
+  boundary: "/home/dominykas/Desktop/trybed/sphere.bin"
+  normals : "/home/dominykas/Desktop/trybed/spheren.bin"
+
+#define the v_inf. Normalized to lattice speed.
+
+v_inf_x : 1.25 #25 #1.237
+T_MAX   : 0.697 #e if you want to run a generic riemann problem
+riemann : false
+
+#if you define a shock in the x axis, set up the properties here:
+shock:
+  P_ratio : 1 #4.004380704339224 #3.043981790466016 #10 #28 # 30 #4.0 #32.0
+  T_ratio : 	1 #2.881448133418942 #1.9186224580039488
+  location : 20000 #100
+  trigger : 1e-0
+  trigger2 : 2
+  trigger3 : 10.001
+
+
+render_window:
+  x: 2000
+  y: 1000
+
+
+# EXT is a mandatory event that ends the simulation at a given *physical* simulation time (us)
+events:
+  EXT:
+    time: 200
+
+#define events that are to be recorded (exporting fields in hdf5 format at that instance
+capture_events:
+  #  event1:
+  #    time: 151
+  #  event2:
+  #    time: 151
+  EXT:
+    time : 200
+
+
+
+output:
+  path: "../Results/Videos/nieuw/"
+
+runtime:
+  solver:
+    alphaMode: False
+    kernel_debug: false
+    Dynamic_weights : False
+
+
+
+wedge:
+  width : 1000
+  height : 400
+  char_height : 20
+  noseX : 0.1
+  noseY : 0.5
+
+bc_scale : 1
+
+
+
+fields_to_rasterize:
+  field1 :
+    id : 0
+    min : 0.07
+    max : 0.00
+    autoset : false
+    output : "wedge_57deg_density_grad1.mp4"
+  field2:
+    id: 2
+    min: 3
+    max: 0.02
+    autoset: true
+    output: "wedge_57deg_density1.mp4"
+  field3:
+    id: 5
+    min: 0
+    max: 1
+    autoset: true
+    output: "wedge_57deg_temp1.mp4"
+
+
+
+

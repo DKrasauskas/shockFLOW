@@ -1,0 +1,115 @@
+physics: #defines the reference state
+  temperature: 300.0 #K
+  GasConstant : 287.058
+  pressure: 100000 # Pa
+  density: 1.0 #kg/m^3
+  gamma : 1.0
+  viscosity : 0.0004886109
+  cv    :  2.5
+
+
+T_MAX : 0.698
+v_inf_x : 0
+render_window:
+  x: 1900
+  y: 900
+
+domain:
+  mx : -1500 #mm
+  px : 1500 #mm
+
+wall_boundaries:
+  x : 2
+  y : 0
+
+shock:
+  P_ratio : 4 #10 #28 # 30 #4.0 #32.0
+  T_ratio : 1.0
+  location : 10000 #100
+  trigger : 1e-0
+  trigger2 : 2
+  trigger3 : 10.001
+
+
+events:
+  store_1:
+    time: 200
+  EXT:
+    time: 300
+
+capture_events:
+
+  #  event2:
+  #    time: 151
+  EXT:
+    time : 300
+
+
+
+output:
+  path: "/home/dominykas/Desktop/trybed/"
+
+runtime:
+  solver:
+    alphaMode: False
+    kernel_debug: false
+    Dynamic_weights : False
+
+general_boundaries:
+  boundary_enable   : false
+  default_boundary  : false
+  nozzle_flow       : false
+
+riemann : true
+
+wedge:
+  width : 200
+  height : 200
+  char_height : 20
+  noseX : 0.3
+  noseY : 0.5
+
+bc_scale : 0
+
+fields_to_rasterize:
+  field1 :
+    id : 1
+    min : 0.009
+    max : 0.00
+    autoset : false
+    output : "output_density.mp4"
+  field2:
+    id: 2
+    min: 1.5
+    max: 0.02
+    autoset: true
+    output: "output_density1.mp4"
+  field4:
+    id: 2
+    min: 3
+    max: 0.02
+    autoset: true
+    output: "output_mach.mp4"
+  field3:
+    id: 5
+    min: 0
+    max: 1
+    autoset: true
+    output: "output_temp.mp4"
+
+boundary_files:
+  boundary: ""
+  normals : ""
+
+
+simulation:
+  domain:
+    dx : 0.0001
+    dy : 1
+    dz : 1
+    Nx : 20000
+    Ny : 300
+    Nz : 1
+  precision: fp64
+  lattice:
+    cs2 : 1.4

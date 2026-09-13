@@ -1,0 +1,86 @@
+lattice:
+  dual: false
+  fields : 8
+  distributions : 98
+
+solver:
+  commandBuffer:
+    autoset : false
+    executeOnRun : false
+    field_max : 0.005
+    field_min : 0
+  buffering:
+    mode: compressed
+    buffer_size: 4
+  geometry_file:
+    path : "../schardin.yaml"
+
+memory:
+  mode              : Device
+  buffers:
+    device:
+      fields        : DevicePure
+      distributions : DevicePure
+    host:
+      fields        : HostGeneric
+      distributions : HostGeneric
+
+rendering:
+  render_window:
+    x: 2000
+    y: 1000
+
+runtime:
+  thread_config:
+    x : 64
+    y : 2
+    z : 1
+  verbose_output: true
+
+  precision:
+    DRAM    : float4
+    register: float
+    compute : float
+
+  solver:
+    alphaMode     : False
+    kernel_debug : false
+
+  rendering:
+    render_window:
+      x: 2000
+      y: 1000
+    frame_rate : 60
+    passes_per_frame : 1
+    show_window : true
+    renderer : DIRECT
+    compute_shader  : "../Rendering/shaders/compute.glsl"
+    vertex_shader   : "../Rendering/shaders/vertex.glsl"
+    fragment_shader : "../Rendering/shaders/fragment.glsl"
+
+  encoding:
+    enabled : true
+    # args : "ffmpeg -r 60 -f rawvideo -pix_fmt rgb24 -s %dx%d -i - -threads 0 -preset fast -y -pix_fmt yuv420p -crf 50  ../Results/Videos/output.mp4"
+    #args : "ffmpeg -f rawvideo -pix_fmt rgb24 -s %dx%d -r 20 -i - -c:v ffv1 -y ../Results/Videos/test.mkv"
+    args: "ffmpeg -r 60 -f rawvideo -pix_fmt rgb24 -s %dx%d -i - -threads 0 -preset slow -y -pix_fmt yuv420p -crf 18  /home/dominykas/Desktop/shockFlowProject/Videos/"
+    N_FRAMES : 100000
+
+  logging:
+    logging_level : 3
+    logging_folder : "/home/dominykas/Desktop/shockFlowProject/Logs/"
+    solver_log : "/home/dominykas/Desktop/shockFlowProject/Logs/solver_log.log"
+    memory_log : "/home/dominykas/Desktop/shockFlowProject/Logs/memory_log.log"
+
+DEBUG_MODE : TRUE
+
+commands:
+  kernel_debug : true
+  autoset : false
+  execute : true
+  screen_limits_x : 0.005
+  screen_limits_y : 0.000
+  selected_field : 2
+  runs_per_frame : 2
+
+
+

@@ -1,0 +1,114 @@
+physics: #defines the reference state
+  temperature: 300.0 #K
+  GasConstant : 287.058
+  pressure: 100000 # Pa
+  density: 1.0 #kg/m^3
+  gamma : 1.0
+  viscosity : 0.0005886109
+  cv    :  2.5
+
+render_window:
+  x: 1900
+  y: 900
+
+domain:
+  mx : -1500 #mm
+  px : 1500 #mm
+
+wall_boundaries:
+  x : 2
+  y : 0
+
+general_boundaries:
+  boundary_enable   : true
+  default_boundary  : false
+  nozzle_flow       : false
+
+shock:
+  P_ratio : 4 # 4.004380704339224 #3.043981790466016 #10 #28 # 30 #4.0 #32.0
+  T_ratio : 	1 #2.881448133418942 #1.9186224580039488
+  location : 200 #100
+  trigger : 1e-0
+  trigger2 : 2
+  trigger3 : 10.001
+
+v_inf_x : .0
+
+events:
+#  capture:
+#    time:
+  EXT:
+    time: 2000
+
+capture_events:
+  #  event1:
+  #    time: 151
+  #  event2:
+  #    time: 151
+  EXT:
+    time : 2000
+
+
+
+output:
+  path: "../Results/hdf5/"
+
+runtime:
+  solver:
+    alphaMode: False
+    kernel_debug: false
+    Dynamic_weights : False
+
+riemann : true
+
+wedge:
+  width : 450
+  height : 330
+  char_height : 20
+  noseX : 0.3
+  noseY : 0.5
+
+bc_scale : 0
+
+fields_to_rasterize:
+  field1 :
+    id : 1
+    min : 0.015
+    max : 0.00
+    autoset : false
+    output : "output_densityA1.mp4"
+  field2:
+    id: 2
+    min: 3
+    max: 0.0
+    autoset: false
+    output: "output_density1A1.mp4"
+  field4:
+    id: 2
+    min: 3
+    max: 0.0
+    autoset: false
+    output: "output_machA1.mp4"
+  field3:
+    id: 5
+    min: 0
+    max: 2
+    autoset: false
+    output: "output_tempA1.mp4"
+
+boundary_files:
+  boundary: "/home/dominykas/CLionProjects/CELBM/rect.bin"
+  normals : "/home/dominykas/CLionProjects/CELBM/rectn.bin"
+
+
+simulation:
+  precision: fp64
+  lattice:
+    cs2 : 1.4
+  domain:
+    dx : 0.0001 #1.4648e-4
+    dy : 1
+    dz : 1
+    Nx : 2000
+    Ny : 2000
+    Nz : 1
