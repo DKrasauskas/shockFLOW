@@ -1,11 +1,8 @@
 # ShockFLOW - a GPU based 1D/2D Transonic CFD solver 
-
+Shock flow is a purely GPU-based transonic 1D/2D CFD solver based on the Entropic Lattice Boltzman Methods.  This module implements the interface via python to the backend, build
+entirely in CUDA/C++ with OpenGL support. It can be used to simulate complex transonic and supersonic 1D and 2D problems, remaining stable and well posed up until Mach 5.0. 
 <img width="1802" height="941" alt="image" src="https://github.com/user-attachments/assets/62d2ce6d-934a-40e8-b6e4-2e1ec5a32c65" />
 
-## Overview & Usage
-
-Shock flow is a purely GPU-based transonic 1D/2D CFD solver based on the Entropic Lattice Boltzman Methods. This module implements the interface via python to the backend, build
-entirely in CUDA/C++ with OpenGL support. 
 
 <table>
   <tr>
@@ -19,6 +16,8 @@ entirely in CUDA/C++ with OpenGL support.
     </td>
   </tr>
 </table>
+For examples, usage and documentation, see the official example repository https://github.com/DKrasauskas/shockFLOW-examples:
+
 
 ### GPU Architecture Support
 
@@ -35,8 +34,13 @@ As of the latest release, the currently supported compute modes and architecture
 
 Note that FP64 is currently unavailable on all architectures. This is due to the large file size required for the pip repository. This will be fixed in the near future. 
 
-> **Minimum requirements:** CUDA Toolkit ≥ X.X, NVIDIA driver ≥ XXX.XX
+## Requirements
 
+For the module to function correctly, make sure you have:
+
+- An NVIDIA GPU
+- NVIDIA driver version ≥ 580
+- [ffmpeg](https://ffmpeg.org/)
 
 ## Installation
 
@@ -46,7 +50,7 @@ The package is available via pip:
 pip install shockFLOW
 ```
 
-> **Note:** For the package to work, you must have a valid NVIDIA graphics card and NVIDIA drivers installed on your system. CUDA does not support non-NVIDIA GPUs.
+
 
 
 ## Validation
