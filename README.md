@@ -28,7 +28,7 @@ As of the latest release, the currently supported compute modes and architecture
 | Pascal       | 6.x                | Yes  | No   | Yes   | No      |                        | x                |
 | Volta        | 7.0                | Yes  | No   | Yes   | No      |                        | x                |
 | Turing       | 7.5                | Yes  | No   | Yes   | Yes     | x                      | x                |
-| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | x                      |                  |
+| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | x                      | x                |
 | Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     | x                      |                  |
 | Hopper       | 9.0                | Yes  | No   | Yes   | Yes     | x                      |                  |
  
