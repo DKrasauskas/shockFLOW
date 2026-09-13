@@ -46,11 +46,11 @@ For the module to function correctly, make sure you have:
 
 The package is available via pip:
 
-For CUDA 13.3 Versions (supporting GPUs with compute capability of 7.5>=
+For CUDA 13.3 Versions (supporting GPUs with compute capability of >=7.5
 ```bash
 pip install shockFLOW
 ```
-For older GPUs, CUDA 12.9:
+For older GPUs, use a build with CUDA 12.9:
 
 
 ```bash
