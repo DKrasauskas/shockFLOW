@@ -31,6 +31,7 @@ As of the latest release, the currently supported compute modes and architecture
 | Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | x                      | x                |
 | Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     | x                      |                  |
 | Hopper       | 9.0                | Yes  | No   | Yes   | Yes     | x                      |                  |
+| Blackwell    | 12.0               | Yes  | No   | Yes   | Yes     | x                      |                  |
  
 
 Note that FP64 is currently unavailable on all architectures. This is due to the large file size required for the pip repository. This will be fixed in the near future. 
