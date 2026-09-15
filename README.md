@@ -23,15 +23,15 @@ For examples, usage and documentation, see the official example repository https
 
 As of the latest release, the currently supported compute modes and architectures are:
  
-| Architecture | Compute Capability | FP32 | FP64 | Linux | Windows | shockFLOW  | shockFLOW-cu129 |
-|--------------|--------------------|:----:|:----:|:-----:|:-------:|:----------------------:|:----------------:|
-| Pascal       | 6.x                | Yes  | No   | Yes   | No      |                        | x                |
-| Volta        | 7.0                | Yes  | No   | Yes   | No      |                        | x                |
-| Turing       | 7.5                | Yes  | No   | Yes   | Yes     | x                      | x                |
-| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | x                      | x                |
-| Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     | x                      |                  |
-| Hopper       | 9.0                | Yes  | No   | Yes   | Yes     | x                      |                  |
-| Blackwell    | 12.0               | Yes  | No   | Yes   | Yes     | x                      |                  |
+| Architecture | Compute Capability | FP32 | FP64 | Linux | Windows | shockFLOW | shockFLOW-cu129 |
+|--------------|--------------------|:----:|:----:|:-----:|:-------:|:---------:|:----------------:|
+| Pascal       | 6.x                | Yes  | No   | Yes   | No      |           | ✔                |
+| Volta        | 7.0                | Yes  | No   | Yes   | No      |           | ✔                |
+| Turing       | 7.5                | Yes  | No   | Yes   | Yes     | ✔         | ✔                |
+| Ampere       | 8.x                | Yes  | No   | Yes   | Yes     | ✔         | ✔                |
+| Ada Lovelace | 8.9                | Yes  | No   | Yes   | Yes     | ✔         |                  |
+| Hopper       | 9.0                | Yes  | No   | Yes   | Yes     | ✔         |                  |
+| Blackwell    | 12.0               | Yes  | No   | Yes   | Yes     | ✔         |                  |
  
 
 Note that FP64 is currently unavailable on all architectures. This is due to the large file size required for the pip repository. This will be fixed in the near future. 
