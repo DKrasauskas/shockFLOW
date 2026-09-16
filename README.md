@@ -25,13 +25,13 @@ As of the latest release, the currently supported compute modes and architecture
  
 | Architecture | Compute Capability | Typical GPUs | FP32 | FP64 | Linux | Windows | shockFLOW | shockFLOW-cu129 |
 |--------------|--------------------|-----------------------------|:----:|:----:|:-----:|:-------:|:---------:|:----------------:|
-| Pascal       | 6.x                | GTX 10-series (1060/1070/1080), Tesla P100 | Yes  | No   | Yes   | No      |           | ✔                |
-| Volta        | 7.0                | Tesla V100, TITAN V         | Yes  | No   | Yes   | No      |           | ✔                |
-| Turing       | 7.5                | RTX 20-series, GTX 16-series | Yes  | No   | Yes   | Yes     | ✔         | ✔                |
-| Ampere       | 8.x                | RTX 30-series, A100, A6000  | Yes  | No   | Yes   | Yes     | ✔         | ✔                |
-| Ada Lovelace | 8.9                | RTX 40-series, L40          | Yes  | No   | Yes   | Yes     | ✔         |                  |
-| Hopper       | 9.0                | H100, H200                  | Yes  | No   | Yes   | Yes     | ✔         |                  |
-| Blackwell    | 12.0               | RTX 50-series, B100/B200    | Yes  | No   | Yes   | Yes     | ✔         |                  |
+| Pascal       | 6.x                | GTX 10-series (1060/1070/1080), Tesla P100 | ✔   |     | ✔    |         |           | ✔                |
+| Volta        | 7.0                | Tesla V100, TITAN V         | ✔   |     | ✔    |         |           | ✔                |
+| Turing       | 7.5                | RTX 20-series, GTX 16-series | ✔   |     | ✔    | ✔       | ✔         | ✔                |
+| Ampere       | 8.x                | RTX 30-series, A100, A6000  | ✔   |     | ✔    | ✔       | ✔         | ✔                |
+| Ada Lovelace | 8.9                | RTX 40-series, L40          | ✔   |     | ✔    | ✔       | ✔         |                  |
+| Hopper       | 9.0                | H100, H200                  | ✔   |     | ✔    | ✔       | ✔         |                  |
+| Blackwell    | 12.0               | RTX 50-series, B100/B200    | ✔   |     | ✔    | ✔       | ✔         |                  |
  
 
 Note that FP64 is currently unavailable on all architectures. This is due to the large file size required for the pip repository. This will be fixed in the near future. 
